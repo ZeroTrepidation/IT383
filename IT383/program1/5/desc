@@ -1,0 +1,18 @@
+The first c file is shm_filesender. This process is responsible for creating the shared memory
+and uploading file to the shared memory. The first thing I do for this program was initialize all
+of my variables and create the struct that will be laid on top of the shared memory. After that
+I then create the pointer that will be assigned to the mmap() and then open a shared memory space
+using the shm_open() system call. This will create the space itself. Once the space is open
+ftruncate() is used to set the size of the the shared memory and then the struct is laid on top of
+memory using the mmap() function. AFter the stuct is laid on top of the memory I then start to
+assign values to all of the variables within shared memory, e.g flag, name, and size. Once that is
+done do while loop and for loop is used to write the file to the contents. The file is then closed.
+
+For the second file we also need to first initialize our variables. This includes the filesharing_struct
+so that we have a way to reference the struct in the shared memory. Once that is done the shared
+memory is opened using shm_open() with read permissions and then the pointer is mapped. Once the
+pointer is mapped i simply check the flag within the memory to see if there is a file and if
+there is a file then I perform the operation intended. The first thing i do is prompt the user
+for the name of the file that needs to be printed to and then I print out the size and the name.
+Afterwards the contents of the shared memory is written to the new file and then once this is
+ completed the shared memory is deleted using the shm_unlink() system call.

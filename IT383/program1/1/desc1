@@ -1,0 +1,12 @@
+Fork() works by forking a new process off of the process that is called by.
+This process will be a copy of its parent process and will receive its
+own distinct copies except for a few things which it will share with its parent
+such as current file directory.The parent process will return its pid while
+the child process will return 0. Returns -1 if failure.
+
+execlp() will load a new process into the memory and executes said process.
+Returns only upon failure which it returns -1.
+
+wait() will cause the parent to wait for the child process that has been forked
+to resolve before it continues running itself. Returns pid of terminated child
+upon success and -1 upon failure.

@@ -1,0 +1,12 @@
+parent: pid = 17933
+parent: pid1 = 17931
+child: pid = 0
+child: pid1 = 17933
+
+getpid() will return the process id of the process that calls the system call.
+you can also use getppid() to get the id of the parent process. Returns the
+id of the process upon success and -1 on failure.
+
+fprintf() is a function that is used to write data to a file. This data should
+be in string format and is the second parameter with the first parameter being
+the file destination.

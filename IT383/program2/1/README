@@ -1,0 +1,29 @@
+This program is a fairly simple program that demonstrates how a thread works in general.
+In fact the function that is used within the thread itself does not benefit at
+all from being multithreaded in this case. In a way this program is similar to how
+creating forking and creating a process would work however in this case the original
+thread and the thread that was created both share global variables. The thread created
+uses this to modify the sum variable.
+
+The first thing that happens in the program is the variables are initialized. After
+that has been done the attributes for the thread need to be initialized and since
+the attributes were specified the attr variable is set to its default value.
+The pthread_attr_init() function returns a 0 on success and a nonzero error number
+on failure.
+
+One this is done the thread is created using the pthread_create() function
+This function takes four arguments. The first is a pointer to the variable where the
+thread id of the created thread should be stored. The second is a pointer to where the
+attributes for the to-be-created thread are stored (note if this isn't initialized then it
+will use default attributes). The third argument is the function that the thread should run
+upon startup and the final argument is the sole arugment of the function that the thread
+should be running. It is good to note that if the thread requires multiple pieces of data it
+is best to pass them via a struct. This function returns zero on success and the error
+number upon an error.
+
+The pthread_join then makes the calling thread suspend its execution until the thread
+with the specified id is finished running. This function will return a 0 upon success
+and the error number upon failure.
+
+After this is done the thread will run its remaining code in this case the
+print function

@@ -1,0 +1,9 @@
+The first part of the assignment was fairly straightforward. It was similar to the
+original producer consumer problem which used shared memory, however this was
+obviously not as complicated since the use of shared memory was not required.
+The first part of the assignment was a good example as to how a race condition can
+occur. Because there was no actual locking involved this resulted in a race
+condition. The reason that this occured is because there is nothing stopping from
+one of the threads losing focus when the core actions are occuring. (The adding
+to the buffer and consuming from buffer). We fix this issue in the second
+program simply by adding 2 semaphores and a mutex lock to the program. 

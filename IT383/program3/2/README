@@ -1,0 +1,25 @@
+Once I realized that there was a lot more to the second part of the
+assignment than I originally thought, I realized that I would need to
+redo a lot of my code. The first major change was I moved the buffer out of
+the program as recommended by the book and declared this information
+in a separate header file. After this I cleaned up both my producer and consumer
+functions by extracting the locked actual insertion and deletion operations and
+putting them in their own functions. In addition to making my program more readable
+this gave me the ability to add error checking to my insertion and deletion methods.
+Once my producer and consumer functions were written correctly I needed to edit
+my main method. The first thing that i needed to do for this section was create
+an array of strings and I did this by using malloc to dynamically allocate both
+the array of strings and also the length of the strings within the array. I also
+needed to add the ability for my program to open and read from a file which I did
+by just using fgets and reading directly into the word array. Once I got the program
+working with 1 of each thread I then tested the program with multiple threads and
+then finally after that worked I implemented the larger word file. This file and
+the size of the array that stores it were both hardcoded and If I wanted to modify
+that in the future I believe the best way to do this is to just have a function
+that checks to see if the array is too small and if so just double it's size.
+
+Overall I really enjoyed this assignment and thought most of it was fairly
+straightforward. In a sense the hardest part was ensuring that I used the double
+pointer correctly for the array of strings since the other parts of the
+assignment were similar to two of our past assignments in regards to creating a
+producer and consumer and then using the java thread APIs.

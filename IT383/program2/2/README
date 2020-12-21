@@ -1,0 +1,37 @@
+Listing 4.1:
+Listing 4.1 is fairly straightforward. It simply creates two threads and runs
+them at the same time. The first one will print o's while the second one will
+call the function print_xs() and in doing so print x's. Because the threads
+are running are the same time however the order in which x's and o's occur
+will happen in any order as each thread is called and paused.
+
+Listing 4.2:
+As talked about in the first part of the assignment the pthread_create function
+only takes one argument for the starting routine that its supposed to run.
+Listing 4.1 provide NULL for its argument and because of this it runs for an
+infinite amount of time until the process is killed. Listing 4.2 however, gets
+around this by using a struct. This struct contains the letter to be printed and
+the number of times that it needs to be printed. Using structs like this demonstrates
+how to pass multiple arguments to threads. There is an issue with this Listing however.
+Because main doesn't wait for both threads to finish the memory is deallocated and the
+threads are no longer able to use the structs
+
+Listing 4.3:
+Listing 4.3 is similar to 4.2 in every way except for its main function. This main
+function solves the issue of Listing 4.3 in that the main function waits for the
+threads that it has created to finish executing before continuing its execution and
+terminating. This is done using the pthread_join() function.
+
+Listing 4.4:
+This program is similar to the others in that it creates a seperate thread to
+run a specific function however in this case the thread is executing a function
+that will find the nth prime number. This program also differs because it uses
+the second parameter in the thread join function to return a value, which in this
+case is an int equal to the prime number.
+
+Listing 4.5:
+Listing 4.5 uses the detached attribute to create a thread which is automatically
+cleaned upon its completion by the system. This is different from the default
+attribute in which the thread sticks around until it is called by the pthread_join
+function. This however means that the thread cannot be called upon for its return value
+but instead ensures that it wont linger as a zombie thread.

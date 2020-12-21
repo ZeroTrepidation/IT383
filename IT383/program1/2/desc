@@ -1,0 +1,21 @@
+shm_open() simply creates a new POSIX shared memory object. Before this
+shared memory object can be used however it needs to be given a size by
+the system call ftruncate(). Returns non-negative if successful and -1 if
+failure.
+
+ftruncate() causes a file to be truncated to a specified size. This size is
+taken as a parameter and is in the units of bytes. (e.g. providing 1024 will
+truncate the file to 1024 bytes). Another thing to note is that to truncate
+a file it must be writable. Retruns 0 on succes and -1 on failure.
+
+mmap() is a system call that creates a new map in the virtual address space of
+the process that called it. When we use this system call with a shared memory
+object it essentially initializes the space as virtual memory that is then
+usable. In addition to this you can cast different data types to the mmap
+function and even cast struts to it so that you can lay a struct on top of
+the virtual memory like we do in part 5. Returns a pointer to the beginning
+of the virtual memory object
+
+shm_unlink() is the final system call that you will want to use when interacting
+with shared memory. This system call will essentially get rid of the shared
+memory object. Returns 1 on success and -1 on failure

@@ -1,0 +1,15 @@
+pipe() system call essentially creates a connection between two processes.
+The pip is only one-way meaning that it is similar to a queue in that it
+can only receive from one end and send through another. A process trying
+to read from an empty pipe will suspend itself until something is readable
+from the pope. For the read and write ends of the pipe, the kernel will
+find the first two available positions for the the file descriptors. Returns
+0 on success and -1 on failure.
+
+write(x, y, z) is simply a system call used to write to a file. It writes up to x bytes
+from the buffer starting at y, to the file denoted by z. The number of bytes written.
+can be less than the size of buffer if there is not enough space. The return
+value is the number of bytes written. If the write fails it will return -1.
+
+close() will simply close the give file descriptor which can then be reused.
+It will return 0 on success and -1 on failure.
