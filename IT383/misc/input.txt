@@ -1,0 +1,6 @@
+a.out
+fetest
+forkExecTest.c
+input.txt
+test.c
+Parent finished executing
